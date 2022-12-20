@@ -18,16 +18,16 @@ export const Drawer = ({ onClose, onRemove, items = [] }) => {
           <div>
             <div className="items">
               {items.map((obj) => (
-                <div className="cartItem d-flex align-center ">
+                <div key={obj.id} className="cartItem d-flex align-center ">
                   <div
                     style={{
-                      backgroundImage: `url("/image/sneakers/image 1.svg")`,
+                      backgroundImage: `url(${obj.imageUrl})`,
                     }}
                     className="cartItemImg"
                   ></div>
                   <div className="mr-20 flex">
-                    <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-                    <b>12 999 руб</b>
+                    <p className="mb-5">{obj.title}</p>
+                    <b>{obj.price}руб</b>
                   </div>
                   <img
                     onClick={() => onRemove(obj.id)}
